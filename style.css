@@ -429,9 +429,9 @@ ul {
 /* CTF Grid */
 .ctf-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .ctf-detail-card {
@@ -475,6 +475,7 @@ ul {
     border: var(--glass-border);
     background: var(--bg-card);
     overflow: hidden;
+    box-shadow: var(--shadow-md);
 }
 
 .ctf-card-back {
@@ -484,30 +485,45 @@ ul {
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+}
+
+.ctf-back-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .ctf-card-back h4 {
     color: var(--accent-color);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .ctf-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 12px;
+    height: 180px;
 }
 
 .ctf-gallery img {
     width: 100%;
-    height: 120px;
+    height: 100%;
     object-fit: cover;
     border-radius: 8px;
     border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: var(--transition);
+}
+
+.ctf-gallery img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
 }
 
 .ctf-card-back p {

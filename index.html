@@ -32,9 +32,10 @@
         <ul class="nav-links">
             <li><a href="#hero">01. // Home</a></li>
             <li><a href="#about">02. // About</a></li>
-            <li><a href="#skills">03. // Skills & CTF</a></li>
-            <li><a href="#projects">04. // Projects</a></li>
-            <li><a href="#contact">05. // Contact</a></li>
+            <li><a href="#skills">03. // Skills</a></li>
+            <li><a href="#ctf">04. // CTF Compititions</a></li>
+            <li><a href="#projects">05. // Projects</a></li>
+            <li><a href="#contact">06. // Contact</a></li>
         </ul>
         <div class="hamburger">
             <span></span>
@@ -103,7 +104,7 @@
 
         <!-- Skills & Achievements Section -->
         <section id="skills" class="section">
-            <h2 class="section-title"><span class="num">03.</span> Skills & Achievements</h2>
+            <h2 class="section-title"><span class="num">03.</span> Skills</h2>
 
             <!-- Skills Grid -->
             <div class="skills-grid">
@@ -135,134 +136,144 @@
 
             <div class="achievements-container" style="display: block;">
                 <!-- Certifications (Full Width) -->
-                <div class="cert-card" style="margin-bottom: 40px;">
+                <div class="cert-card">
                     <i data-lucide="award" class="card-icon"></i>
                     <h3>Certifications</h3>
                     <ul class="cert-list">
                         <li>Human Centric Cybersecurity Security – Macquarie University (Ongoing)</li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
-                <!-- CTF Competitions Grid -->
-                <h3 style="font-size: 1.5rem; margin-bottom: 30px; color: var(--text-primary);">CTF Competitions</h3>
-                <div class="ctf-grid">
+        <!-- CTF Competitions Section -->
+        <section id="ctf" class="section">
+            <h2 class="section-title"><span class="num">04.</span> CTF Competitions</h2>
+            <div class="ctf-grid">
 
-                    <!-- CTF 1 -->
-                    <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
-                        <div class="ctf-card-inner">
-                            <div class="ctf-card-front">
-                                <div class="ctf-poster">
-                                    <img src="images/ctf_aftermath.jpeg" alt="Aftermath Apiit 2025">
-                                    <div class="ctf-overlay">
-                                        <span class="rank-badge">3rd Place</span>
-                                    </div>
-                                </div>
-                                <div class="ctf-info">
-                                    <h4>Aftermath Apiit 2025</h4>
-                                    <p class="ctf-team">Team: Ghost-x</p>
+                <!-- CTF 1 -->
+                <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
+                    <div class="ctf-card-inner">
+                        <div class="ctf-card-front">
+                            <div class="ctf-poster">
+                                <img src="images/ctf_aftermath.jpeg" alt="Aftermath Apiit 2025">
+                                <div class="ctf-overlay">
+                                    <span class="rank-badge">3rd Place</span>
                                 </div>
                             </div>
-                            <div class="ctf-card-back">
+                            <div class="ctf-info">
+                                <h4>Aftermath Apiit 2025</h4>
+                                <p class="ctf-team">Team: Ghost-x</p>
+                            </div>
+                        </div>
+                        <div class="ctf-card-back">
+                            <div class="ctf-gallery">
+                                <img src="images/ctf_aftermath_1.jpeg" alt="Highlight 1"
+                                    onerror="this.src='images/Aftermath-photo1.jpeg'">
+                                <img src="images/ctf_aftermath_2.jpeg" alt="Highlight 2"
+                                    onerror="this.src='images/Aftermath-photo2.jpeg'">
+                            </div>
+                            <div class="ctf-back-content">
                                 <h4>Event Highlights</h4>
-                                <div class="ctf-gallery">
-                                    <img src="images/ctf_aftermath_1.jpeg" alt="Highlight 1"
-                                        onerror="this.src='images/Aftermath-photo1.jpeg'">
-                                    <img src="images/ctf_aftermath_2.jpeg" alt="Highlight 2"
-                                        onerror="this.src='images/Aftermath-photo2.jpeg'">
-                                </div>
                                 <p>Intense competition focusing on web exploitations and cryptography.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- CTF 2 -->
-                    <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
-                        <div class="ctf-card-inner">
-                            <div class="ctf-card-front">
-                                <div class="ctf-poster">
-                                    <img src="images/ctf_summit.jpeg" alt="Cyber Security Summit 2025">
-                                    <div class="ctf-overlay">
-                                        <span class="rank-badge">7th Place</span>
-                                    </div>
-                                </div>
-                                <div class="ctf-info">
-                                    <h4>Cyber Security Summit 2025</h4>
-                                    <p class="ctf-team">Team: Ghost-x</p>
+                <!-- CTF 2 -->
+                <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
+                    <div class="ctf-card-inner">
+                        <div class="ctf-card-front">
+                            <div class="ctf-poster">
+                                <img src="images/ctf_summit.jpeg" alt="Cyber Security Summit 2025">
+                                <div class="ctf-overlay">
+                                    <span class="rank-badge">7th Place</span>
                                 </div>
                             </div>
-                            <div class="ctf-card-back">
+                            <div class="ctf-info">
+                                <h4>Cyber Security Summit 2025</h4>
+                                <p class="ctf-team">Team: Ghost-x</p>
+                            </div>
+                        </div>
+                        <div class="ctf-card-back">
+                            <div class="ctf-gallery">
+                                <img src="images/ctf_summit_1.jpeg" alt="Highlight 1"
+                                    onerror="this.src='images/CyberSecuritySummit-photo1.jpg'">
+                                <img src="images/ctf_summit_2.jpeg" alt="Highlight 2" onerror="this.src='#'">
+                            </div>
+                            <div class="ctf-back-content">
                                 <h4>Event Highlights</h4>
-                                <div class="ctf-gallery">
-                                    <img src="images/ctf_summit_1.jpeg" alt="Highlight 1"
-                                        onerror="this.src='images/CyberSecuritySummit-photo1.jpg'">
-                                    <img src="images/ctf_summit_2.jpeg" alt="Highlight 2" onerror="this.src='#'">
-                                </div>
                                 <p>Networking with professionals and tackling real-world scenarios.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- CTF 3 -->
-                    <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
-                        <div class="ctf-card-inner">
-                            <div class="ctf-card-front">
-                                <div class="ctf-poster">
-                                    <img src="images/ctf_sleigh.jpeg" alt="Sleigh the Flag 2025">
-                                    <div class="ctf-overlay">
-                                        <span class="rank-badge">13th Place</span>
-                                    </div>
-                                </div>
-                                <div class="ctf-info">
-                                    <h4>Sleigh the Flag CTF 2025</h4>
-                                    <p class="ctf-team">Team: Ghost-x</p>
+                <!-- CTF 3 -->
+                <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
+                    <div class="ctf-card-inner">
+                        <div class="ctf-card-front">
+                            <div class="ctf-poster">
+                                <img src="images/ctf_sleigh.jpeg" alt="Sleigh the Flag 2025">
+                                <div class="ctf-overlay">
+                                    <span class="rank-badge">13th Place</span>
                                 </div>
                             </div>
-                            <div class="ctf-card-back">
+                            <div class="ctf-info">
+                                <h4>Sleigh the Flag CTF 2025</h4>
+                                <p class="ctf-team">Team: Ghost-x</p>
+                            </div>
+                        </div>
+                        <div class="ctf-card-back">
+                            <div class="ctf-gallery">
+                                <img src="images/ctf_sleigh_1.jpeg" alt="Highlight 1"
+                                    onerror="this.src='images/sleightheflag-photo1.jpg'">
+                                <img src="images/ctf_sleigh_2.jpeg" alt="Highlight 2"
+                                    onerror="this.src='images/sleightheflag-photo2.jpg'">
+                            </div>
+                            <div class="ctf-back-content">
                                 <h4>Event Highlights</h4>
-                                <div class="ctf-gallery">
-                                    <img src="images/ctf_sleigh_1.jpeg" alt="Highlight 1"
-                                        onerror="this.src='images/sleightheflag-photo1.jpg'">
-                                    <img src="images/ctf_sleigh_2.jpeg" alt="Highlight 2"
-                                        onerror="this.src='images/sleightheflag-photo2.jpg'">
-                                </div>
                                 <p>Holiday-themed challenges featuring reverse engineering and OSINT.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- CTF 4 -->
-                    <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
-                        <div class="ctf-card-inner">
-                            <div class="ctf-card-front">
-                                <div class="ctf-poster">
-                                    <img src="images/ctf_apiit.png" alt="APIIT CTF">
-                                    <div class="ctf-overlay">
-                                        <span class="rank-badge">Participant</span>
-                                    </div>
-                                </div>
-                                <div class="ctf-info">
-                                    <h4>APIIT CTF</h4>
-                                    <p class="ctf-team">Team: Ghost-x</p>
+                <!-- CTF 4 -->
+                <div class="ctf-detail-card" onclick="this.classList.toggle('flipped')">
+                    <div class="ctf-card-inner">
+                        <div class="ctf-card-front">
+                            <div class="ctf-poster">
+                                <img src="images/ctf_apiit.png" alt="APIIT CTF">
+                                <div class="ctf-overlay">
+                                    <span class="rank-badge">Participant</span>
                                 </div>
                             </div>
-                            <div class="ctf-card-back">
+                            <div class="ctf-info">
+                                <h4>APIIT CTF</h4>
+                                <p class="ctf-team">Team: Ghost-x</p>
+                            </div>
+                        </div>
+                        <div class="ctf-card-back">
+                            <div class="ctf-gallery">
+                                <img src="images/ctf_apiit_1.png" alt="Highlight 1" onerror="this.src='#'">
+                                <img src="images/ctf_apiit_2.png" alt="Highlight 2" onerror="this.src='#'">
+                            </div>
+                            <div class="ctf-back-content">
                                 <h4>Event Highlights</h4>
-                                <div class="ctf-gallery">
-                                    <img src="images/ctf_apiit_1.png" alt="Highlight 1" onerror="this.src='#'">
-                                    <img src="images/ctf_apiit_2.png" alt="Highlight 2" onerror="this.src='#'">
-                                </div>
                                 <p>A great learning experience exploring new security tools and techniques.</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="section">
-            <h2 class="section-title"><span class="num">04.</span> Featured Projects</h2>
+            <h2 class="section-title"><span class="num">05.</span> Featured Projects</h2>
             <div class="projects-grid">
 
                 <!-- Project 0 -->
@@ -396,7 +407,7 @@
 
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
-            <h2 class="section-title"><span class="num">05.</span> Get In Touch</h2>
+            <h2 class="section-title"><span class="num">06.</span> Get In Touch</h2>
             <div class="contact-box">
                 <p class="contact-message" style="margin-bottom: 30px;">
                     I am currently open to new opportunities, internships, and collaborations.
