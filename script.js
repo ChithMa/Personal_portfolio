@@ -36,6 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
             mouse.y = null;
         });
 
+        const cursorDot = document.getElementById('cursor-dot');
+        const interactiveSelectors = 'a, button, .cta-btn, .project-card, .cert-thumb, .nav-links li a';
+
+        window.addEventListener('mousemove', (e) => {
+            if (cursorDot) {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            }
+        });
+
+        document.querySelectorAll(interactiveSelectors).forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (cursorDot) cursorDot.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                if (cursorDot) cursorDot.classList.remove('active');
+            });
+        });
 
         function resize() {
             width = canvas.width = window.innerWidth;
@@ -246,8 +264,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     // Observe grids
-    const grids = document.querySelectorAll('.skills-grid, .projects-grid, .ctf-grid');
+    const grids = document.querySelectorAll('.skills-grid, .projects-grid, .ctf-grid, .cert-grid');
     grids.forEach(grid => staggeredObserver.observe(grid));
+
+    // Certificate viewer interaction
+    const certificateThumbs = document.querySelectorAll('.cert-thumb');
+    const activeCertificate = document.getElementById('active-certificate');
+
+    if (activeCertificate) {
+        activeCertificate.addEventListener('error', () => {
+            if (!activeCertificate.dataset.fallbackUsed) {
+                activeCertificate.dataset.fallbackUsed = 'true';
+                activeCertificate.src = 'images/HCCS.png';
+                activeCertificate.alt = 'Certificate preview unavailable';
+            }
+        });
+    }
+
+    certificateThumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            certificateThumbs.forEach(item => item.classList.remove('active'));
+            thumb.classList.add('active');
+
+            if (activeCertificate) {
+                activeCertificate.dataset.fallbackUsed = 'false';
+                activeCertificate.src = thumb.dataset.src;
+                activeCertificate.alt = thumb.dataset.alt;
+                activeCertificate.style.opacity = '1';
+            }
+        });
+    });
 
     // Also Hamburger Menu Logic (Basic Toggle) - Simple version
     const hamburger = document.querySelector('.hamburger');

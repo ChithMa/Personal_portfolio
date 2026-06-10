@@ -40,6 +40,28 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     position: relative;
+    cursor: none;
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.95);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.14);
+    transition: transform 0.12s ease-out, width 0.15s ease, height 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cursor-dot.active {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 12px rgba(56, 189, 248, 0.2);
 }
 
 .background-grid {
@@ -399,12 +421,13 @@ ul {
 /* Achievements */
 .achievements-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .cert-card,
-.ctf-card {
+.ctf-card,
+.certificate-card {
     background: var(--bg-card);
     padding: 30px;
     border-radius: 16px;
@@ -413,10 +436,23 @@ ul {
 }
 
 .cert-card:hover,
-.ctf-card:hover {
+.ctf-card:hover,
+.certificate-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-glow);
     border-color: rgba(56, 189, 248, 0.3);
+}
+
+.cert-card.highlight-card {
+    background: rgba(34, 211, 238, 0.12);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.12);
+}
+
+.cert-card-intro {
+    margin: 15px 0 20px;
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 .card-icon {
@@ -424,6 +460,164 @@ ul {
     width: 32px;
     height: 32px;
     margin-bottom: 20px;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.certificate-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: var(--glass-border);
+    transition: var(--transition);
+}
+
+.cert-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.certificate-card h3 {
+    margin: 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.certificate-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.certificate-card ul {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.certificate-card li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.certificate-link:hover {
+    color: #7dd3fc;
+}
+
+.certificate-viewer {
+    margin-top: 40px;
+}
+
+.viewer-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: var(--glass-border);
+    transition: var(--transition);
+}
+
+.viewer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.viewer-header h3 {
+    margin: 0 0 10px;
+    color: var(--accent-color);
+}
+
+.viewer-header p {
+    color: var(--text-secondary);
+    max-width: 520px;
+}
+
+.viewer-frame {
+    position: relative;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewer-frame img {
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    display: block;
+}
+
+.viewer-thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.cert-thumb {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 14px;
+    padding: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.cert-thumb.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+    color: var(--text-primary);
+}
+
+.cert-thumb:hover {
+    transform: translateY(-2px);
+}
+
+.cert-thumb img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.cert-thumb span {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .viewer-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* CTF Grid */
