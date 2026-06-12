@@ -37,7 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const cursorDot = document.getElementById('cursor-dot');
+        const themeToggle = document.getElementById('theme-toggle');
         const interactiveSelectors = 'a, button, .cta-btn, .project-card, .cert-thumb, .nav-links li a';
+
+        const applyTheme = (theme) => {
+            document.body.classList.toggle('light-mode', theme === 'light');
+            if (themeToggle) {
+                themeToggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+            }
+            localStorage.setItem('theme', theme);
+        };
+
+        const storedTheme = localStorage.getItem('theme');
+        applyTheme(storedTheme === 'light' ? 'light' : 'dark');
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+                applyTheme(nextTheme);
+            });
+        }
 
         window.addEventListener('mousemove', (e) => {
             if (cursorDot) {
@@ -250,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Find all stagger-able children
-                const children = entry.target.querySelectorAll('.project-card, .skill-category, .ctf-detail-card');
+                const children = entry.target.querySelectorAll('.project-card, .skill-category, .ctf-card, .ctf-detail-card');
 
                 children.forEach((child, index) => {
                     // Set delay via inline style
@@ -282,6 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     certificateThumbs.forEach(thumb => {
+        const img = thumb.querySelector('img');
+
         thumb.addEventListener('click', () => {
             certificateThumbs.forEach(item => item.classList.remove('active'));
             thumb.classList.add('active');
@@ -293,6 +314,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeCertificate.style.opacity = '1';
             }
         });
+
+        // Hover swap to show certificate image (uses data-hover)
+        const hoverSrc = thumb.dataset.hover;
+        if (hoverSrc && img) {
+            thumb.addEventListener('mouseenter', () => {
+                if (!img.dataset._orig) img.dataset._orig = img.src;
+                img.src = hoverSrc;
+            });
+
+            thumb.addEventListener('mouseleave', () => {
+                if (img.dataset._orig) {
+                    img.src = img.dataset._orig;
+                    delete img.dataset._orig;
+                }
+            });
+        }
     });
 
     // Also Hamburger Menu Logic (Basic Toggle) - Simple version
