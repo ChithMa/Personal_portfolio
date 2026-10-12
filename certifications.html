@@ -75,7 +75,7 @@
             border: 1px solid var(--border-subtle);
             padding: 4px;
             object-fit: contain;
-            shrink: 0;
+            flex-shrink: 0;
         }
 
         .cert-thumb-title {
@@ -266,22 +266,62 @@
                         <h2
                             style="font-size: 1.15rem; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 0.6rem;">
                             <i data-lucide="shield-check" style="color: var(--accent); width: 20px; height: 20px;"></i>
-                            Institutional & Industry Certifications
+                            Industry & Specialized Certifications
                         </h2>
 
                         <div class="cert-card-grid">
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/ECCouncil_AIAgent.png"
+                                data-alt="EC-Council – Hack an AI Agent Live (When AI Trusts AI)">
+                                <img src="images/ECCouncil_AIAgent.png" alt="EC-Council" class="cert-thumb-logo"
+                                    style="object-fit: cover;">
+                                <div>
+                                    <span class="cert-thumb-title" style="display: block;">EC-Council: Hack an AI Agent
+                                        Live</span>
+                                    <span
+                                        style="font-size: 0.68rem; color: var(--accent); font-family: var(--font-mono);">1
+                                        CPE Credit · Aug 2026</span>
+                                </div>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/CodeRed_DarkWeb.png"
+                                data-alt="CodeRed – Introduction to Dark Web, Anonymity, and Cryptocurrency">
+                                <img src="images/CodeRed_DarkWeb.png" alt="CodeRed" class="cert-thumb-logo"
+                                    style="object-fit: cover;">
+                                <div>
+                                    <span class="cert-thumb-title" style="display: block;">CodeRed: Dark Web, Anonymity
+                                        & Crypto</span>
+                                    <span
+                                        style="font-size: 0.68rem; color: var(--accent); font-family: var(--font-mono);">Validation
+                                        of Completion · Oct 2026</span>
+                                </div>
+                            </button>
+
                             <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/HCCS.png"
                                 data-alt="Human Centric Cybersecurity – Macquarie University">
                                 <img src="images/HCCS_logo.png" alt="Macquarie University" class="cert-thumb-logo"
                                     onerror="this.style.display='none'">
-                                <span class="cert-thumb-title">Human Centric Cybersecurity (Macquarie University)</span>
+                                <div>
+                                    <span class="cert-thumb-title" style="display: block;">Human Centric
+                                        Cybersecurity</span>
+                                    <span
+                                        style="font-size: 0.68rem; color: var(--text-subtle); font-family: var(--font-mono);">Macquarie
+                                        University</span>
+                                </div>
                             </button>
 
                             <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/HCCS.png"
                                 data-alt="ISC2 Certified in Cybersecurity (CC) - Ongoing">
                                 <img src="images/ISC2_CC_logo.png" alt="ISC2" class="cert-thumb-logo"
                                     onerror="this.style.display='none'">
-                                <span class="cert-thumb-title">ISC2 Certified in Cybersecurity (CC) - Candidate</span>
+                                <div>
+                                    <span class="cert-thumb-title" style="display: block;">ISC2 Certified in
+                                        Cybersecurity (CC)</span>
+                                    <span
+                                        style="font-size: 0.68rem; color: var(--text-subtle); font-family: var(--font-mono);">Candidate
+                                        Status</span>
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -351,6 +391,9 @@
                 <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"
                     rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://tryhackme.com/p/TheGHOSTx" target="_blank" rel="noopener noreferrer">TryHackMe</a>
+                <a href="https://app.hackthebox.com/users/3207895?profile-top-tab=machines&ownership-period=1M&profile-bottom-tab=prolabs"
+                    target="_blank" rel="noopener noreferrer">Hack The Box</a>
             </div>
         </div>
     </footer>
