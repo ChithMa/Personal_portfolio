@@ -5,139 +5,357 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications | Chithma Pathirana</title>
+    <meta name="description" content="Verified Cybersecurity and Professional Certifications of Chithma Pathirana.">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Michroma&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Inline Certificate Specific Cyber Styling -->
+    <style>
+        .cert-category-block {
+            margin-bottom: 3.5rem;
+        }
+
+        .cert-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-thumb-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #fff;
+            text-align: left;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-thumb-btn:hover,
+        .cert-thumb-btn.active {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow-sm);
+        }
+
+        .cert-thumb-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--accent);
+        }
+
+        .cert-thumb-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: #fff;
+            border: 1px solid var(--border-subtle);
+            padding: 4px;
+            object-fit: contain;
+            shrink: 0;
+        }
+
+        .cert-thumb-title {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.35;
+        }
+
+        .cert-viewer-box {
+            position: sticky;
+            top: 100px;
+            background: rgba(18, 18, 18, 0.9);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .cert-viewer-frame {
+            width: 100%;
+            min-height: 380px;
+            max-height: 550px;
+            background: #000;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .cert-viewer-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-layout-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .cert-layout-split {
+                grid-template-columns: 1.25fr 0.95fr;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
     <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2322d3ee'/%3E%3Ctext x='50' y='57' font-size='42' text-anchor='middle' fill='%230f172a' font-family='Fira Code,monospace'%3ECP%3C/text%3E%3C/svg%3E"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230d0d0d' stroke='%23FF5400' stroke-width='4'/%3E%3Ctext x='50' y='58' font-size='38' font-weight='900' text-anchor='middle' fill='%23FF5400' font-family='Michroma,sans-serif'%3ECP%3C/text%3E%3C/svg%3E"
         sizes="any">
-    <meta name="theme-color" content="#22d3ee">
 </head>
 
 <body>
-    <div class="background-grid"></div>
+    <!-- Background Canvas -->
+    <div class="cyber-canvas-bg" aria-hidden="true">
+        <div class="bg-grid-overlay"></div>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
+
     <div class="cursor-dot" id="cursor-dot"></div>
 
-    <nav class="navbar">
-        <div class="logo">&lt;CP /&gt;</div>
-        <ul class="nav-links">
-            <li><a href="index.html#hero">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="index.html#ctf">CTF Competitions</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle" type="button">Light Mode</button>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Site Header -->
+    <header class="site-nav" id="site-nav">
+        <div class="container nav-wrapper">
+            <a href="index.html#hero" class="brand-mark" aria-label="Chithma Pathirana Home">
+                <div class="brand-badge">CP</div>
+                <div class="brand-text-wrapper">
+                    <span class="brand-title">CHITHMA</span>
+                    <span class="brand-tag">Cybersecurity</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#skills">Toolkit</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#ctf">CTF</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="certifications.html" class="active">Certificates</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta-group">
+                <a href="index.html#contact" class="cta-btn-nav">
+                    <span>Let's Talk</span>
+                    <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
+                </a>
+                <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-    </nav>
 
-    <main>
-        <section class="section">
-            <h2 class="section-title"><span class="num">01.</span> LinkedIn Certificates</h2>
-            <div class="certificate-card">
-                <div class="cert-card-heading">
-                    <i data-lucide="linkedin" class="card-icon"></i>
+        <div class="mobile-drawer" id="mobile-drawer">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Toolkit</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#ctf">CTF Competitions</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </header>
+
+    <main class="section" style="padding-top: 8.5rem;">
+        <div class="container">
+            <div class="section-header with-aside">
+                <div>
+                    <div class="section-tag">
+                        <span class="section-tag-line"></span>
+                        <span class="section-tag-text">Credentials & Badges</span>
+                    </div>
+                    <h1 class="section-title">VERIFIED <span class="faded">CERTIFICATIONS</span></h1>
                 </div>
-                <div class="viewer-thumbs linkedin-grid">
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Foundations of Cybersecurity">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Ethical Hacking: Footprinting and Reconnaissance</span>
-                    </button>
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/AwarenessRansomware.png" data-src="images/HCCS.png" data-alt="Network Security Fundamentals">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Cybersecurity Awareness: Ransomware</span>
-                    </button>
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Introduction to Ethical Hacking">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Introduction to Ethical Hacking</span>
-                    </button>
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Cybersecurity Essentials">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Cybersecurity Essentials</span>
-                    </button>
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Web Application Security">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Web Application Security</span>
-                    </button>
-                    <button type="button" class="cert-thumb linkedin-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Security Awareness">
-                        <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn certificate logo" onerror="this.style.display='none'">
-                        <span class="cert-name">Security Awareness</span>
-                    </button>
-                </div>
+                <p class="section-desc">
+                    Click any credential below to interactively view the full certificate verification document.
+                </p>
             </div>
-        </section>
 
-        <section class="section">
-            <h2 class="section-title"><span class="num">02.</span> Cybersecurity Certifications</h2>
-            <div class="certificate-card">
-                <div class="cert-card-heading">
-                    <i data-lucide="award" class="card-icon"></i>
-                </div>
-                <div class="viewer-thumbs">
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Human Centric Cybersecurity – Macquarie University">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="ISC2 Certified in Cybersecurity (CC) - ONGOING">
-                        <img src="images/ISC2_CC_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                </div>
-            </div>
-        </section>
+            <div class="cert-layout-split">
+                <!-- Credentials Category Column -->
+                <div class="cert-categories-col">
+                    <!-- Category 1: LinkedIn Learning -->
+                    <div class="cert-category-block">
+                        <h2
+                            style="font-size: 1.15rem; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 0.6rem;">
+                            <i data-lucide="linkedin" style="color: var(--accent); width: 20px; height: 20px;"></i>
+                            LinkedIn Learning Credentials
+                        </h2>
 
-        <section class="section">
-            <h2 class="section-title"><span class="num">03.</span> CTF Certifications</h2>
-            <div class="certificate-card">
-                <div class="cert-card-heading">
-                    <i data-lucide="award" class="card-icon"></i>
-                </div>
-                <div class="viewer-thumbs">
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="ZERO-DAY 2026 Certificate">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Aftermath Apiit 2025 Certificate">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Cyber Security Summit 2025 Certificate">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="Sleigh the Flag CTF 2025 Certificate">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                    <button type="button" class="cert-thumb" data-hover="images/FootprintingandReconnaissance.png" data-src="images/HCCS.png" data-alt="APIIT CTF Certificate">
-                        <img src="images/HCCS_logo.png" alt="Certificate logo" onerror="this.style.display='none'">
-                    </button>
-                </div>
-            </div>
-        </section>
+                        <div class="cert-card-grid">
+                            <button type="button" class="cert-thumb-btn cert-thumb active"
+                                data-src="images/FootprintingandReconnaissance.png"
+                                data-alt="Ethical Hacking: Footprinting and Reconnaissance">
+                                <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn logo" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Ethical Hacking: Footprinting and Reconnaissance</span>
+                            </button>
 
-        <section class="section">
-            <div class="certificate-viewer">
-                <div class="viewer-card">
-                    <div class="viewer-header">
-                        <div>
-                            <h3>Preview</h3>
-                            <p>Selected certificate appears here.</p>
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/AwarenessRansomware.png"
+                                data-alt="Cybersecurity Awareness: Ransomware">
+                                <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn logo" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Cybersecurity Awareness: Ransomware</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/FootprintingandReconnaissance.png"
+                                data-alt="Introduction to Ethical Hacking">
+                                <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn logo" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Introduction to Ethical Hacking</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/FootprintingandReconnaissance.png" data-alt="Cybersecurity Essentials">
+                                <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn logo" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Cybersecurity Essentials</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb"
+                                data-src="images/FootprintingandReconnaissance.png" data-alt="Web Application Security">
+                                <img src="images/LINKEDIN_LOGO.png" alt="LinkedIn logo" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Web Application Security</span>
+                            </button>
                         </div>
                     </div>
-                    <div class="viewer-frame">
-                        <img id="active-certificate" src="images/HCCS.png" alt="Certificate preview" onerror="this.style.opacity='0'">
+
+                    <!-- Category 2: Academic & Institutional -->
+                    <div class="cert-category-block">
+                        <h2
+                            style="font-size: 1.15rem; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 0.6rem;">
+                            <i data-lucide="shield-check" style="color: var(--accent); width: 20px; height: 20px;"></i>
+                            Institutional & Industry Certifications
+                        </h2>
+
+                        <div class="cert-card-grid">
+                            <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/HCCS.png"
+                                data-alt="Human Centric Cybersecurity – Macquarie University">
+                                <img src="images/HCCS_logo.png" alt="Macquarie University" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">Human Centric Cybersecurity (Macquarie University)</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/HCCS.png"
+                                data-alt="ISC2 Certified in Cybersecurity (CC) - Ongoing">
+                                <img src="images/ISC2_CC_logo.png" alt="ISC2" class="cert-thumb-logo"
+                                    onerror="this.style.display='none'">
+                                <span class="cert-thumb-title">ISC2 Certified in Cybersecurity (CC) - Candidate</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: CTF Competitions -->
+                    <div class="cert-category-block">
+                        <h2
+                            style="font-size: 1.15rem; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 0.6rem;">
+                            <i data-lucide="award" style="color: var(--accent); width: 20px; height: 20px;"></i>
+                            CTF Tournament Awards
+                        </h2>
+
+                        <div class="cert-card-grid">
+                            <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/zeroday.jpeg"
+                                data-alt="ZERO-DAY 2026 Certificate">
+                                <img src="images/zeroday.jpeg" alt="ZERO-DAY" class="cert-thumb-logo">
+                                <span class="cert-thumb-title">ZERO-DAY 2026 (12th Place Nationally)</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/ctf_aftermath.jpeg"
+                                data-alt="Aftermath APIIT 2025 Certificate">
+                                <img src="images/ctf_aftermath.jpeg" alt="Aftermath APIIT" class="cert-thumb-logo">
+                                <span class="cert-thumb-title">Aftermath APIIT 2025 (3rd Place Podium)</span>
+                            </button>
+
+                            <button type="button" class="cert-thumb-btn cert-thumb" data-src="images/ctf_summit.jpeg"
+                                data-alt="Cyber Security Summit 2025 Certificate">
+                                <img src="images/ctf_summit.jpeg" alt="Summit" class="cert-thumb-logo">
+                                <span class="cert-thumb-title">Cyber Security Summit 2025 (7th Place)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Viewer Column -->
+                <div class="cert-viewer-col">
+                    <div class="cert-viewer-box">
+                        <div
+                            style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                            <h3
+                                style="font-size: 0.95rem; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="file-check"
+                                    style="color: var(--accent); width: 17px; height: 17px;"></i>
+                                Live Certificate Preview
+                            </h3>
+                            <span
+                                style="font-size: 0.72rem; color: var(--accent); font-family: var(--font-mono); text-transform: uppercase;">Verified</span>
+                        </div>
+                        <div class="cert-viewer-frame">
+                            <img id="active-certificate" src="images/FootprintingandReconnaissance.png"
+                                alt="Certificate preview">
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-copy">
+                © 2026 Chithma Pathirana. Crafted with <span class="accent">Precision & Cyber Aesthetics</span>.
+            </p>
+            <div class="footer-links">
+                <a href="index.html#hero">Home</a>
+                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script>
         lucide.createIcons();

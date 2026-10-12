@@ -4,418 +4,863 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chithma Pathirana | Cyber Security</title>
+    <title>Chithma Pathirana | Cybersecurity & Technology Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Chithma Pathirana - Cybersecurity Undergraduate, Ethical Hacker, CTF Competitor, and Developer.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Michroma&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Favicon (inline SVG data URI) -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
     <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2322d3ee'/%3E%3Ctext x='50' y='57' font-size='42' text-anchor='middle' fill='%230f172a' font-family='Fira Code,monospace'%3ECP%3C/text%3E%3C/svg%3E"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230d0d0d' stroke='%23FF5400' stroke-width='4'/%3E%3Ctext x='50' y='58' font-size='38' font-weight='900' text-anchor='middle' fill='%23FF5400' font-family='Michroma,sans-serif'%3ECP%3C/text%3E%3C/svg%3E"
         sizes="any">
-    <meta name="theme-color" content="#22d3ee">
+    <meta name="theme-color" content="#FF5400">
 </head>
 
 <body>
-    <!-- Background Animation -->
-    <div class="background-grid"></div>
+    <!-- Atmospheric Ambient Glows & Grid -->
+    <div class="cyber-canvas-bg" aria-hidden="true">
+        <div class="bg-grid-overlay"></div>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
+
+    <!-- Interactive Cursor Dot -->
     <div class="cursor-dot" id="cursor-dot"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">&lt;CP /&gt;</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="#ctf">CTF Competitions</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle" type="button">Light Mode</button>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Navigation Bar -->
+    <header class="site-nav" id="site-nav">
+        <div class="container nav-wrapper">
+            <a href="#hero" class="brand-mark" aria-label="Chithma Pathirana Home">
+                <div class="brand-badge">CP</div>
+                <div class="brand-text-wrapper">
+                    <span class="brand-title">CHITHMA</span>
+                    <span class="brand-tag">Cybersecurity</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Toolkit</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#ctf">CTF</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="certifications.html">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta-group">
+                <a href="#contact" class="cta-btn-nav">
+                    <span>Let's Talk</span>
+                    <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
+                </a>
+                <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-    </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobile-drawer">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Toolkit</a>
+            <a href="#experience">Experience</a>
+            <a href="#ctf">CTF Competitions</a>
+            <a href="#projects">Projects</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <p class="hi-text">Hello, I am</p>
-                <h1 class="glitch" data-text="Chithma Pathirana">Chithma Pathirana</h1>
-                <h2 class="role-text">> <span id="typing-text"></span><span class="cursor">_</span></h2>
-                <p class="hero-desc">
-                    BSc (Hons) Cybersecurity Undergraduate @ Staffordshire University.<br>
-                    Skilled in Ethical Hacking, Network Security, and Digital Forensics.
-                </p>
-                <a href="#projects" class="cta-btn">View My Work</a>
+            <div class="hero-backdrop-label" aria-hidden="true">CYBERDEFENSE</div>
+
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="status-ping">
+                            <span class="ping-outer"></span>
+                            <span class="ping-inner"></span>
+                        </span>
+                        <span class="text">Available for Opportunities</span>
+                    </div>
+
+                    <p class="hero-eyebrow">Cybersecurity Specialist & Developer</p>
+
+                    <h1 class="hero-title">
+                        CHITHMA <br>
+                        <span class="text-gradient-orange">PATHIRANA</span>
+                    </h1>
+
+                    <div class="hero-role-wrapper">
+                        <span class="prompt-sym">></span>
+                        <span id="typing-text">Ethical Hacker</span>
+                        <span class="cursor">_</span>
+                    </div>
+
+                    <p class="hero-desc">
+                        BSc (Hons) Cybersecurity Undergraduate at Staffordshire University. Passionate about ethical
+                        hacking, network defense, digital forensics, reverse engineering, and creative problem-solving
+                        through hands-on CTF challenges.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn-primary">
+                            <span>Explore Work</span>
+                            <i data-lucide="arrow-down-right" style="width: 17px; height: 17px;"></i>
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            <span>Get in Touch</span>
+                            <i data-lucide="mail" style="width: 17px; height: 17px;"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                            class="social-circle-link" aria-label="GitHub Profile">
+                            <i data-lucide="github" style="width: 18px; height: 18px;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"
+                            rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn Profile">
+                            <i data-lucide="linkedin" style="width: 18px; height: 18px;"></i>
+                        </a>
+                        <a href="mailto:manangapathirana@gmail.com" class="social-circle-link" aria-label="Email Me">
+                            <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="portrait-glow-back"></div>
+                    <div class="portrait-container">
+                        <img src="images/profile-c.png" alt="Chithma Pathirana" class="portrait-img">
+                        <div class="portrait-floating-badge">
+                            <div class="floating-badge-icon">
+                                <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div class="floating-badge-text">
+                                <h4>Security Researcher</h4>
+                                <p>Staffordshire University • Team GHOST-X</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <h2 class="section-title"><span class="num">02.</span> About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I am a motivated <span class="highlight">Cybersecurity Undergraduate</span> pursuing my BSc
-                        (Hons) at the University of Staffordshire.
-                        With a strong foundation in ethical hacking and network security, I actively apply my knowledge
-                        in <span class="highlight">CTF competitions</span> and academic projects.
-                    </p>
-                    <p>
-                        My toolbox includes Kali Linux, Nmap, Wireshark, and Metasploit. I am committed to continuous
-                        learning and supporting organizational security goals.
-                    </p>
+        <!-- Marquee Infinite Ticker Banner -->
+        <div class="marquee-container" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-item">ETHICAL HACKING <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">PENETRATION TESTING <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">NETWORK DEFENSE <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">CTF RESEARCHER <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">DIGITAL FORENSICS <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">FULL-STACK SECURITY <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">INCIDENT RESPONSE <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">REVERSE ENGINEERING <span class="marquee-dot">•</span></div>
 
-                    <div class="education-block">
-                        <h3>Education</h3>
+                <div class="marquee-item">ETHICAL HACKING <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">PENETRATION TESTING <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">NETWORK DEFENSE <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">CTF RESEARCHER <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">DIGITAL FORENSICS <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">FULL-STACK SECURITY <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">INCIDENT RESPONSE <span class="marquee-dot">•</span></div>
+                <div class="marquee-item">REVERSE ENGINEERING <span class="marquee-dot">•</span></div>
+            </div>
+        </div>
+
+        <!-- About & Education Bento Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header with-aside">
+                    <div>
+                        <div class="section-tag">
+                            <span class="section-tag-line"></span>
+                            <span class="section-tag-text">01. Discovery</span>
+                        </div>
+                        <h2 class="section-title">ABOUT <span class="faded">ME</span></h2>
+                    </div>
+                    <p class="section-desc">
+                        A focused deep-dive into my academic journey, hands-on methodology, and technical foundations.
+                    </p>
+                </div>
+
+                <div class="about-bento-grid">
+                    <!-- Bio & Identity Bento Card -->
+                    <div class="bento-card">
+                        <h3 class="bento-card-title">
+                            <i data-lucide="fingerprint"></i>
+                            Who I Am
+                        </h3>
+                        <p class="bento-text">
+                            I am a motivated <strong class="bento-highlight">Cybersecurity Undergraduate</strong>
+                            currently completing my BSc (Hons) at the <strong>University of Staffordshire</strong>. My
+                            academic trajectory and practical defense experience have forged a deep focus on ethical
+                            hacking, network architecture hardening, and offensive security analysis.
+                        </p>
+                        <p class="bento-text">
+                            I actively compete in national and international <strong class="bento-highlight">Capture The
+                                Flag (CTF)</strong> events with Team GHOST-X. These intensive competitions sharpen my
+                            capability in reverse engineering, binary exploitation, web vulnerabilities, and live
+                            forensics under high-pressure scenarios.
+                        </p>
+
+                        <div class="stats-strip">
+                            <div class="stat-item">
+                                <span class="stat-num">5+</span>
+                                <span class="stat-label">CTF Tournaments</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num">7+</span>
+                                <span class="stat-label">Security Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num">3rd</span>
+                                <span class="stat-label">National Podium</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num">2027</span>
+                                <span class="stat-label">BSc Honors</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Bento Card -->
+                    <div class="bento-card">
+                        <h3 class="bento-card-title">
+                            <i data-lucide="graduation-cap"></i>
+                            Education
+                        </h3>
                         <ul class="edu-list">
-                            <li>
-                                <strong>BSc (Hons) Cybersecurity</strong> - University of Staffordshire (2024–2027)
+                            <li class="edu-item">
+                                <div class="edu-degree">BSc (Hons) Cybersecurity</div>
+                                <div class="edu-institution">University of Staffordshire</div>
+                                <span class="edu-meta">2024 – 2027 (Undergraduate)</span>
                             </li>
-                            <li>
-                                <strong>APIIT IT Foundation</strong> - APIIT (2023–2024)<br>
-                                <span class="sub-text">Distinction Pass</span>
+                            <li class="edu-item">
+                                <div class="edu-degree">APIIT IT Foundation</div>
+                                <div class="edu-institution">APIIT Sri Lanka</div>
+                                <span class="edu-meta">Distinction Pass (2023–2024)</span>
                             </li>
-                            <li>
-                                <strong>GCE O/L</strong> - Mahinda Rajapaksha College Matara<br>
-                                <span class="sub-text">8 A’s and B</span>
+                            <li class="edu-item">
+                                <div class="edu-degree">GCE Ordinary Level</div>
+                                <div class="edu-institution">Mahinda Rajapaksha College Matara</div>
+                                <span class="edu-meta">8 A's and 1 B</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- Profile Image -->
-                <div class="about-visual">
-                    <div class="profile-img-container">
-                        <img src="images/profile-c.png" alt="Chithma Pathirana" class="profile-img">
-                        <div class="img-border"></div>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Tech Stack & Toolkit Section -->
         <section id="skills" class="section">
-            <h2 class="section-title"><span class="num">03.</span> Skills</h2>
+            <div class="container">
+                <div class="section-header with-aside">
+                    <div>
+                        <div class="section-tag">
+                            <span class="section-tag-line"></span>
+                            <span class="section-tag-text">02. Arsenal</span>
+                        </div>
+                        <h2 class="section-title">TECH <span class="faded">STACK</span></h2>
+                    </div>
+                    <p class="section-desc">
+                        Security tools, networking architectures, and programming languages I use to audit, build, and
+                        defend systems.
+                    </p>
+                </div>
 
-            <!-- Skills Grid -->
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Networking</h3>
-                    <ul>
-                        <li>TCP/IP, DNS, DHCP</li>
-                        <li>VLANs, VPN, Routing</li>
-                        <li>Firewalls, AAA</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Security Tools</h3>
-                    <ul>
-                        <li>Nmap, Metasploit</li>
-                        <li>Burp Suite, Hydra</li>
-                        <li>Wireshark, Nessus</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>OS & Prog</h3>
-                    <ul>
-                        <li>Linux (Kali, Ubuntu)</li>
-                        <li>Windows Server</li>
-                        <li>Python, C/C#, SQL</li>
-                    </ul>
-                </div>
-            </div>
+                <div class="toolkit-grid">
+                    <!-- Security Tools -->
+                    <div class="toolkit-card">
+                        <div class="toolkit-header">
+                            <div class="toolkit-icon-wrap">
+                                <i data-lucide="shield-alert"></i>
+                            </div>
+                            <span class="toolkit-count-badge">7 Tools</span>
+                        </div>
+                        <h3 class="toolkit-title">Security & Pentesting</h3>
+                        <p class="toolkit-desc">Vulnerability discovery, network reconnaissance, and exploit
+                            verification.</p>
+                        <div class="toolkit-pills">
+                            <span class="tech-pill">Nmap</span>
+                            <span class="tech-pill">Metasploit</span>
+                            <span class="tech-pill">Burp Suite</span>
+                            <span class="tech-pill">Wireshark</span>
+                            <span class="tech-pill">Hydra</span>
+                            <span class="tech-pill">Nessus</span>
+                            <span class="tech-pill">John The Ripper</span>
+                        </div>
+                    </div>
 
-            <div class="achievements-container">
-                <div class="cert-card highlight-card">
-                    <i data-lucide="award" class="card-icon"></i>
-                    <h3>Certifications Page</h3>
-                    <p class="cert-card-intro">Explore all certifications and certificate photos on a dedicated certifications page.</p>
-                    <a href="certifications.html" class="certificate-link">Go to Certifications</a>
+                    <!-- Networking & Infrastructure -->
+                    <div class="toolkit-card">
+                        <div class="toolkit-header">
+                            <div class="toolkit-icon-wrap">
+                                <i data-lucide="network"></i>
+                            </div>
+                            <span class="toolkit-count-badge">8 Concepts</span>
+                        </div>
+                        <h3 class="toolkit-title">Networking & Defense</h3>
+                        <p class="toolkit-desc">Routing protocols, packet analysis, segmented architectures, and
+                            perimeter defense.</p>
+                        <div class="toolkit-pills">
+                            <span class="tech-pill">TCP/IP</span>
+                            <span class="tech-pill">DNS / DHCP</span>
+                            <span class="tech-pill">VLANs</span>
+                            <span class="tech-pill">VPNs</span>
+                            <span class="tech-pill">Firewalls</span>
+                            <span class="tech-pill">IDS / IPS</span>
+                            <span class="tech-pill">SIEM</span>
+                            <span class="tech-pill">Packet Tracer</span>
+                        </div>
+                    </div>
+
+                    <!-- Programming & Scripting -->
+                    <div class="toolkit-card">
+                        <div class="toolkit-header">
+                            <div class="toolkit-icon-wrap">
+                                <i data-lucide="code-2"></i>
+                            </div>
+                            <span class="toolkit-count-badge">8 Techs</span>
+                        </div>
+                        <h3 class="toolkit-title">Development & Code</h3>
+                        <p class="toolkit-desc">Security automation scripts, exploit payloads, and web applications.</p>
+                        <div class="toolkit-pills">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Bash Scripting</span>
+                            <span class="tech-pill">C / C#</span>
+                            <span class="tech-pill">SQL</span>
+                            <span class="tech-pill">JavaScript</span>
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">HTML / CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- OS & Virtualization -->
+                    <div class="toolkit-card">
+                        <div class="toolkit-header">
+                            <div class="toolkit-icon-wrap">
+                                <i data-lucide="server"></i>
+                            </div>
+                            <span class="toolkit-count-badge">6 Environments</span>
+                        </div>
+                        <h3 class="toolkit-title">Systems & Virtualization</h3>
+                        <p class="toolkit-desc">Offensive distros, isolated laboratory sandboxes, and enterprise
+                            servers.</p>
+                        <div class="toolkit-pills">
+                            <span class="tech-pill">Kali Linux</span>
+                            <span class="tech-pill">Ubuntu Linux</span>
+                            <span class="tech-pill">Windows Server</span>
+                            <span class="tech-pill">VMware</span>
+                            <span class="tech-pill">VirtualBox</span>
+                            <span class="tech-pill">Docker Basics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Quick Jump Box -->
+                <div style="margin-top: 2rem;">
+                    <div class="bento-card"
+                        style="flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1.25rem;">
+                            <div class="toolkit-icon-wrap" style="width: 52px; height: 52px;">
+                                <i data-lucide="award" style="width: 28px; height: 28px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.15rem; color: #fff; text-transform: uppercase;">Professional
+                                    Certifications</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">Explore LinkedIn, Macquarie
+                                    University, and CTF verified certificate credentials.</p>
+                            </div>
+                        </div>
+                        <a href="certifications.html" class="btn-primary"
+                            style="padding: 0.7rem 1.4rem; font-size: 0.78rem;">
+                            <span>View All Certificates</span>
+                            <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Journey Section -->
         <section id="experience" class="section">
-            <h2 class="section-title"><span class="num">04.</span> Experience</h2>
-            <div class="experience-path">
-                <div class="experience-point">
-                    <div class="logo-badge">
-                         <!--<img src="images/NSB.png" alt="Aftermath Apiit 2025">-->
-                        <div class="logo-mark">NSB</div>
+            <div class="container">
+                <div class="section-header with-aside">
+                    <div>
+                        <div class="section-tag">
+                            <span class="section-tag-line"></span>
+                            <span class="section-tag-text">03. Career</span>
+                        </div>
+                        <h2 class="section-title">WORK <span class="faded">JOURNEY</span></h2>
                     </div>
-                    <div class="experience-copy">
-                        <p class="experience-role">IT Security Intern</p>
-                        <p class="experience-company">NSB Bank Head Office</p>
-                    </div>
+                    <p class="section-desc">
+                        Hands-on enterprise roles where I defended real infrastructure and implemented security
+                        policies.
+                    </p>
+                </div>
+
+                <div class="timeline-wrapper">
+                    <div class="timeline-line-base"></div>
+                    <div class="timeline-line-fill" id="timeline-fill"></div>
+
+                    <ul class="timeline-list">
+                        <!-- NSB Bank Internship -->
+                        <li class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <div class="timeline-meta-col">
+                                    <span class="timeline-period">2024 – Present</span>
+                                    <span class="timeline-duration-badge">Internship</span>
+                                    <span class="timeline-location">
+                                        <i data-lucide="map-pin"
+                                            style="width: 13px; height: 13px; color: var(--accent);"></i>
+                                        Colombo, Sri Lanka
+                                    </span>
+                                </div>
+
+                                <div class="timeline-body-col">
+                                    <div class="timeline-role-row">
+                                        <div class="timeline-logo-badge">
+                                            <img src="images/NSB.png" alt="NSB Bank Logo"
+                                                onerror="this.innerText='NSB'">
+                                        </div>
+                                        <div>
+                                            <h3 class="timeline-role-title">IT Security Intern</h3>
+                                            <p class="timeline-company-name">National Savings Bank (NSB) Head Office</p>
+                                        </div>
+                                    </div>
+
+                                    <p class="timeline-description">
+                                        Engaged directly with the enterprise information security team to support
+                                        security monitoring, analyze vulnerability reports, assess compliance
+                                        requirements, and evaluate internal security protocols across banking
+                                        operational environments.
+                                    </p>
+
+                                    <div class="toolkit-pills">
+                                        <span class="tech-pill">Enterprise Security</span>
+                                        <span class="tech-pill">Vulnerability Auditing</span>
+                                        <span class="tech-pill">Access Controls</span>
+                                        <span class="tech-pill">Incident Mitigation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- CTF Competitions Section -->
+        <!-- CTF Competitions Showcase -->
         <section id="ctf" class="section">
-            <h2 class="section-title"><span class="num">06.</span> CTF Competitions</h2>
-            <div class="ctf-grid">
-                <div class="ctf-card">
-                    <div class="ctf-card-brand">
-                        <img src="images/zeroday.jpeg" alt="ZERO-DAY 2026 logo">
+            <div class="container">
+                <div class="section-header with-aside">
+                    <div>
+                        <div class="section-tag">
+                            <span class="section-tag-line"></span>
+                            <span class="section-tag-text">04. Battleground</span>
+                        </div>
+                        <h2 class="section-title">CTF <span class="faded">ARENA</span></h2>
                     </div>
-                    <div class="ctf-card-content">
-                        <h4>ZERO-DAY 2026</h4>
-                        <p class="ctf-detail">12th Place · Team: GHOST-X</p>
-                    </div>
+                    <p class="section-desc">
+                        High-stakes cybersecurity competitions solved under real-time conditions with Team GHOST-X.
+                    </p>
                 </div>
-                <div class="ctf-card">
-                    <div class="ctf-card-brand">
-                        <img src="images/ctf_aftermath.jpeg" alt="Aftermath Apiit 2025 logo">
-                    </div>
-                    <div class="ctf-card-content">
-                        <h4>Aftermath Apiit 2025</h4>
-                        <p class="ctf-detail">3rd Place · Team: GHOST-X</p>
-                    </div>
+
+                <div class="ctf-header-badge">
+                    <i data-lucide="swords" style="width: 15px; height: 15px;"></i>
+                    <span>Team: GHOST-X • Active National CTF Competitor</span>
                 </div>
-                <div class="ctf-card">
-                    <div class="ctf-card-brand">
-                        <img src="images/ctf_summit.jpeg" alt="Cyber Security Summit 2025 logo">
+
+                <div class="ctf-grid">
+                    <!-- ZERO-DAY 2026 -->
+                    <div class="ctf-card">
+                        <div class="ctf-thumb-wrapper">
+                            <img src="images/zeroday.jpeg" alt="ZERO-DAY 2026 logo" class="ctf-thumb-img">
+                            <span class="ctf-rank-tag">12th Place</span>
+                        </div>
+                        <div class="ctf-card-content">
+                            <h3 class="ctf-card-name">ZERO-DAY 2026</h3>
+                            <p class="ctf-team-detail">12th Place Nationally · Team: GHOST-X</p>
+                        </div>
                     </div>
-                    <div class="ctf-card-content">
-                        <h4>Cyber Security Summit 2025</h4>
-                        <p class="ctf-detail">7th Place · Team: GHOST-X</p>
+
+                    <!-- Aftermath Apiit 2025 -->
+                    <div class="ctf-card">
+                        <div class="ctf-thumb-wrapper">
+                            <img src="images/ctf_aftermath.jpeg" alt="Aftermath Apiit 2025 logo" class="ctf-thumb-img">
+                            <span class="ctf-rank-tag" style="background: rgba(255, 84, 0, 0.9); color: #fff;">3rd Place
+                                (Podium)</span>
+                        </div>
+                        <div class="ctf-card-content">
+                            <h3 class="ctf-card-name">Aftermath Apiit 2025</h3>
+                            <p class="ctf-team-detail">3rd Place Winner · Team: GHOST-X</p>
+                        </div>
                     </div>
-                </div>
-                <div class="ctf-card">
-                    <div class="ctf-card-brand">
-                        <img src="images/ctf_sleigh.jpeg" alt="Sleigh the Flag 2025 logo">
+
+                    <!-- Cyber Security Summit 2025 -->
+                    <div class="ctf-card">
+                        <div class="ctf-thumb-wrapper">
+                            <img src="images/ctf_summit.jpeg" alt="Cyber Security Summit 2025 logo"
+                                class="ctf-thumb-img">
+                            <span class="ctf-rank-tag">7th Place</span>
+                        </div>
+                        <div class="ctf-card-content">
+                            <h3 class="ctf-card-name">Cyber Security Summit 2025</h3>
+                            <p class="ctf-team-detail">7th Place Finalist · Team: GHOST-X</p>
+                        </div>
                     </div>
-                    <div class="ctf-card-content">
-                        <h4>Sleigh the Flag CTF 2025</h4>
-                        <p class="ctf-detail">13th Place · Team: GHOST-X</p>
+
+                    <!-- Sleigh the Flag CTF 2025 -->
+                    <div class="ctf-card">
+                        <div class="ctf-thumb-wrapper">
+                            <img src="images/ctf_sleigh.jpeg" alt="Sleigh the Flag CTF 2025 logo" class="ctf-thumb-img">
+                            <span class="ctf-rank-tag">13th Place</span>
+                        </div>
+                        <div class="ctf-card-content">
+                            <h3 class="ctf-card-name">Sleigh the Flag 2025</h3>
+                            <p class="ctf-team-detail">13th Place · Team: GHOST-X</p>
+                        </div>
                     </div>
-                </div>
-                <div class="ctf-card">
-                    <div class="ctf-card-brand">
-                        <img src="images/ctf_apiit.png" alt="APIIT CTF logo">
-                    </div>
-                    <div class="ctf-card-content">
-                        <h4>APIIT CTF</h4>
-                        <p class="ctf-detail">Participant · Team: GHOST-X</p>
+
+                    <!-- APIIT CTF -->
+                    <div class="ctf-card">
+                        <div class="ctf-thumb-wrapper">
+                            <img src="images/ctf_apiit.png" alt="APIIT CTF logo" class="ctf-thumb-img">
+                            <span class="ctf-rank-tag">Participant</span>
+                        </div>
+                        <div class="ctf-card-content">
+                            <h3 class="ctf-card-name">APIIT CTF</h3>
+                            <p class="ctf-team-detail">Tournament Finalist · Team: GHOST-X</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Featured Projects Section -->
         <section id="projects" class="section">
-            <h2 class="section-title"><span class="num">07.</span> Featured Projects</h2>
-            <div class="projects-grid">
-
-                <!-- Project -1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i data-lucide="github"></i></a>
+            <div class="container">
+                <div class="section-header with-aside">
+                    <div>
+                        <div class="section-tag">
+                            <span class="section-tag-line"></span>
+                            <span class="section-tag-text">05. Creations</span>
                         </div>
+                        <h2 class="section-title">FEATURED <span class="faded">PROJECTS</span></h2>
                     </div>
-                    <h3 class="project-title">Capture The Flag (CTF) Cybersecurity Box</h3>
-                    <p class="project-desc">
-                        Designed and developed a custom CTF virtual machine focused on
-                        “New Trends in Cybersecurity,” integrating 5 challenge categories
-                        (Web Exploitation, Binary Exploitation, Cryptography, Reverse Engineering, Forensics)
-                        with 10 medium-to-hard challenges. Implemented hidden flags, exploit validation, and risk
-                        analysis,
-                        accompanied by a comprehensive technical report and walkthroughs. Gained hands-on experience in
-                        vulnerability discovery,
-                        exploitation, incident response, and security best practices.
+                    <p class="section-desc">
+                        Engineering projects spanning custom virtual machine design, enterprise applications, and
+                        security simulations.
                     </p>
-
-                    <ul class="project-tech">
-                        <li>VMware</li>
-                        <li>Linux (Kali/Ubuntu)</li>
-                        <li>Python</li>
-                        <li>Bashscripting</li>
-
-
-                    </ul>
                 </div>
 
-                <!-- Project 0 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i data-lucide="github"></i></a>
+                <div class="projects-grid">
+                    <!-- Project 1: CTF VM Box -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="cpu"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                                    class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">Capture The Flag (CTF) Cybersecurity Box</h3>
+                        <p class="project-desc">
+                            Designed and developed a custom CTF virtual machine integrating 5 challenge categories: Web
+                            Exploitation, Binary Exploitation, Cryptography, Reverse Engineering, and Forensics with 10
+                            medium-to-hard challenges and hidden flags.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">VMware</li>
+                            <li class="project-tech-item">Kali Linux</li>
+                            <li class="project-tech-item">Python</li>
+                            <li class="project-tech-item">Bash Scripting</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">Internship Management System</h3>
-                    <p class="project-desc">
-                        Developed a web-based internship management system using
-                        Agile methodology, focused on delivering a user-friendly
-                        interface, efficient workflow, and role-based functionalities
-                        for students, mentors, and coordinators. The system was implemented over three iterative
-                        sprints,
-                        including requirement gathering, UI/UX prototyping, testing, and deployment.
-                    </p>
-                    <ul class="project-tech">
-                        <li>node.js</li>
-                        <li>Express</li>
-                        <li>React</li>
-                        <li>Next.js</li>
-                        <li>MongoDB</li>
 
-                    </ul>
-                </div>
-
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i data-lucide="github"></i></a>
+                    <!-- Project 2: Internship Management System -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="layout"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                                    class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">Internship Management System</h3>
+                        <p class="project-desc">
+                            Web-based portal built using Agile sprints with role-based dashboards for students, mentors,
+                            and academic coordinators. Handles logbook submissions, PDF generation, and review
+                            workflows.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">React</li>
+                            <li class="project-tech-item">Next.js</li>
+                            <li class="project-tech-item">Node.js</li>
+                            <li class="project-tech-item">MongoDB</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">Cyber Security Lab Design</h3>
-                    <p class="project-desc">
-                        Designed a simulated healthcare security lab with IDS/IPS and SIEM monitoring. Included an
-                        AES-256 encryption script.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Python</li>
-                        <li>IDS/IPS</li>
-                        <li>SIEM</li>
-                    </ul>
-                </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i data-lucide="github"></i></a>
+                    <!-- Project 3: Cyber Security Lab Design -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                                    class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">Healthcare Cyber Security Lab</h3>
+                        <p class="project-desc">
+                            Simulated secure healthcare infrastructure with IDS/IPS intrusion rules and SIEM log
+                            monitoring. Includes an automated AES-256 medical data encryption engine.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">Python</li>
+                            <li class="project-tech-item">IDS/IPS</li>
+                            <li class="project-tech-item">SIEM</li>
+                            <li class="project-tech-item">AES-256</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">Ethical Hacking & Pentest</h3>
-                    <p class="project-desc">
-                        Academic project involving reconnaissance, vulnerability scanning (Nmap, Nessus), and
-                        exploitation (Metasploit) with recommended countermeasures.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Nmap</li>
-                        <li>Metasploit</li>
-                        <li>Nessus</li>
-                    </ul>
-                </div>
 
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/Hasthika-rish/SDAM-Assignment" target="_blank"><i
-                                    data-lucide="github"></i></a>
+                    <!-- Project 4: Ethical Hacking & Pentest -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="terminal"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                                    class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">Ethical Hacking & Penetration Test</h3>
+                        <p class="project-desc">
+                            Comprehensive vulnerability assessment featuring active reconnaissance, automated Nessus
+                            scanning, manual Nmap scripting, and Metasploit payload validation with defense
+                            countermeasures.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">Nmap</li>
+                            <li class="project-tech-item">Metasploit</li>
+                            <li class="project-tech-item">Nessus</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">Gym Management System</h3>
-                    <p class="project-desc">
-                        A C# desktop application design. Integrates MySQL for membership and
-                        scheduling.
-                    </p>
-                    <ul class="project-tech">
-                        <li>C#</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
 
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="https://chithma.github.io/BRIGHTCARE-HOSPITAL-final/index.html" target="_blank"><i
-                                    data-lucide="github"></i></a>
+                    <!-- Project 5: Hospital Portal -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="globe"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://chithma.github.io/BRIGHTCARE-HOSPITAL-final/index.html" target="_blank"
+                                    rel="noopener noreferrer" class="project-icon-link" aria-label="Live Demo">
+                                    <i data-lucide="external-link" style="width: 17px; height: 17px;"></i>
+                                </a>
+                                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                                    class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">BrightCare Hospital Portal</h3>
+                        <p class="project-desc">
+                            Responsive clinical dashboard and automated pharmacy ordering system using asynchronous data
+                            management with clean patient navigation.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">HTML5</li>
+                            <li class="project-tech-item">JavaScript</li>
+                            <li class="project-tech-item">JSON</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">Hospital Website</h3>
-                    <p class="project-desc">
-                        Responsive hospital dashboard and pharmacy interface using JSON for data management.
-                    </p>
-                    <ul class="project-tech">
-                        <li>HTML/CSS</li>
-                        <li>JavaScript</li>
-                        <li>JSON</li>
-                    </ul>
-                </div>
 
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-lucide="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/ChithMa/network-projects" target="_blank"><i
-                                    data-lucide="github"></i></a>
+                    <!-- Project 6: APIIT Enterprise Network Design -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon-box">
+                                <i data-lucide="git-fork"></i>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/ChithMa/network-projects" target="_blank"
+                                    rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub Repository">
+                                    <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+                                </a>
+                            </div>
                         </div>
+                        <h3 class="project-title">3-Branch Enterprise Network Design</h3>
+                        <p class="project-desc">
+                            Engineered a multi-branch network topology in Cisco Packet Tracer. Implemented inter-VLAN
+                            routing, Access Control Lists (ACLs), DHCP snooping, and NAT translation.
+                        </p>
+                        <ul class="project-tech-list">
+                            <li class="project-tech-item">Cisco PT</li>
+                            <li class="project-tech-item">VLANs</li>
+                            <li class="project-tech-item">ACLs</li>
+                            <li class="project-tech-item">Routing</li>
+                        </ul>
                     </div>
-                    <h3 class="project-title">APIIT Network Design</h3>
-                    <p class="project-desc">
-                        Designed a 3-branch network infrastructure using Cisco Packet Tracer. Configured VLANs, ACLs,
-                        and routing.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Cisco PT</li>
-                        <li>VLANs</li>
-                        <li>ACLs</li>
-                    </ul>
                 </div>
-
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <h2 class="section-title"><span class="num">08.</span> Get In Touch</h2>
-            <div class="contact-box">
-                <p class="contact-message" style="margin-bottom: 30px;">
-                    I am currently open to new opportunities, internships, and collaborations.
-                    Feel free to reach out!
-                </p>
-                <div class="social-links-big"
-                    style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px;">
-                    <a href="https://github.com/ChithMa" target="_blank"><i data-lucide="github"
-                            style="width: 32px; height: 32px;"></i></a>
-                    <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"><i
-                            data-lucide="linkedin" style="width: 32px; height: 32px;"></i></a>
-                    <a href="mailto:manangapathirana@gmail.com"><i data-lucide="mail"
-                            style="width: 32px; height: 32px;"></i></a>
+        <section id="contact" class="contact-section">
+            <div class="contact-glow-backdrop" aria-hidden="true"></div>
+
+            <div class="container contact-grid">
+                <div class="contact-info-col">
+                    <span class="contact-eyebrow">
+                        <span class="dot"></span>
+                        Connect Directly
+                    </span>
+
+                    <h2 class="contact-main-heading">
+                        LET'S SECURE <br>
+                        <span class="text-gradient-orange">& COLLABORATE</span>
+                    </h2>
+
+                    <p class="contact-subtext">
+                        Currently open to cybersecurity internships, ethical hacking projects, CTF team events, and
+                        software development opportunities.
+                    </p>
+
+                    <div class="contact-methods-list">
+                        <!-- Direct Email -->
+                        <a href="mailto:manangapathirana@gmail.com" class="contact-card-link">
+                            <div class="contact-card-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <div class="contact-card-label">Email Me</div>
+                                <div class="contact-card-val">manangapathirana@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"
+                            rel="noopener noreferrer" class="contact-card-link">
+                            <div class="contact-card-icon">
+                                <i data-lucide="linkedin"></i>
+                            </div>
+                            <div>
+                                <div class="contact-card-label">LinkedIn Profile</div>
+                                <div class="contact-card-val">linkedin.com/in/chithma-pathirana</div>
+                            </div>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer"
+                            class="contact-card-link">
+                            <div class="contact-card-icon">
+                                <i data-lucide="github"></i>
+                            </div>
+                            <div>
+                                <div class="contact-card-label">GitHub Repository</div>
+                                <div class="contact-card-val">github.com/ChithMa</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <a href="mailto:manangapathirana@gmail.com" class="cta-btn">Say Hello</a>
+
+                <!-- Direct WhatsApp / Message Quick Launcher Form -->
+                <div class="contact-form-card">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="user-name" class="form-label">Your Name</label>
+                            <input type="text" id="user-name" name="name" class="form-input"
+                                placeholder="e.g. Alex Smith" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user-email" class="form-label">Email or Phone</label>
+                            <input type="text" id="user-email" name="email" class="form-input"
+                                placeholder="e.g. alex@company.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user-msg" class="form-label">Message</label>
+                            <textarea id="user-msg" name="message" class="form-textarea"
+                                placeholder="Tell me about your project, idea, or role..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-form-submit" id="submit-btn">
+                            <i data-lucide="message-square" style="width: 17px; height: 17px;"></i>
+                            <span>Send Message</span>
+                        </button>
+
+                        <p class="form-helper-note">
+                            Quick-connect launcher opens WhatsApp or your email client with your message prepared.
+                        </p>
+                    </form>
+                </div>
             </div>
         </section>
-
-        <footer class="footer">
-            <p>Designed & Built by Chithma Pathirana</p>
-            <div class="social-links">
-                <a href="https://github.com/ChithMa" target="_blank"><i data-lucide="github"></i></a>
-                <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"><i
-                        data-lucide="linkedin"></i></a>
-                <a href="mailto:manangapathirana@gmail.com"><i data-lucide="mail"></i></a>
-            </div>
-        </footer>
-
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-copy">
+                © 2026 Chithma Pathirana. Crafted with <span class="accent">Precision & Cyber Aesthetics</span>.
+            </p>
+            <div class="footer-links">
+                <a href="#hero">Back to Top</a>
+                <a href="https://github.com/ChithMa" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/chithma-pathirana-32389b323/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="certifications.html">Certificates</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Scroll-to-Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top">
+        <i data-lucide="chevron-up" style="width: 22px; height: 22px;"></i>
+    </button>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script>
         lucide.createIcons();
